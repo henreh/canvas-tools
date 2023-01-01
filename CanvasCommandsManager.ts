@@ -193,7 +193,7 @@ export default class CanvasCommandsManager {
         log("Setting up commands");
 		this.plugin.addCommand({
 			id: 'copy-web-node-url',
-			name: 'Copy web node URL',
+			name: 'Canvas Toolbox > Copy web node URL',
 			hotkeys: [{ modifiers: ["Alt"], key: "c" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)
@@ -205,7 +205,7 @@ export default class CanvasCommandsManager {
 
 		this.plugin.addCommand({
 			id: 'inspect-node',
-			name: 'Inspect node',
+			name: 'Canvas Toolbox > Inspect node',
 			hotkeys: [{ modifiers: ["Alt"], key: "i" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)
@@ -217,7 +217,7 @@ export default class CanvasCommandsManager {
 
 		this.plugin.addCommand({
 			id: 'add-linked-files',
-			name: 'Add linked files',
+			name: 'Canvas Toolbox > Add linked files',
 			hotkeys: [{ modifiers: ["Alt"], key: "w" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)
@@ -229,7 +229,7 @@ export default class CanvasCommandsManager {
 
 		this.plugin.addCommand({
 			id: 'fan-bullets',
-			name: 'Fan bullets out',
+			name: 'Canvas Toolbox > Fan bullets out',
 			hotkeys: [{ modifiers: ["Alt"], key: "r" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)
@@ -241,7 +241,7 @@ export default class CanvasCommandsManager {
 
 		this.plugin.addCommand({
 			id: 'process-web-page',
-			name: 'Process web page',
+			name: 'Canvas Toolbox > Process web page',
 			hotkeys: [{ modifiers: ["Alt"], key: "p" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)
@@ -253,7 +253,7 @@ export default class CanvasCommandsManager {
 
 		this.plugin.addCommand({
 			id: 'follow-link-as-node',
-			name: 'Follow link as node',
+			name: 'Canvas Toolbox > Follow link as node',
 			hotkeys: [{ modifiers: ["Alt"], key: "f" }],
 			checkCallback: (checking: boolean) => {
 				if (!checking)

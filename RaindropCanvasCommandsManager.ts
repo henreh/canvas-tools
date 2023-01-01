@@ -19,7 +19,7 @@ export default class RaindropCanvasCommandsManager {
     public addCommands() {	
         this.plugin.addCommand({
             id: 'raindrop-add-collection',
-            name: 'Add collection',
+            name: 'Canvas Toolbox > Raindrop > Add collection',
             hotkeys: [{ modifiers: ["Alt"], key: "c" }],
             checkCallback: (checking: boolean) => {
                 if (!checking)
