@@ -28,6 +28,12 @@ export default class CTB extends Plugin {
 		(new CanvasCommandsManager(this)).addCommands();
 		(new RaindropCanvasCommandsManager(this)).addCommands();
 
+		this.registerEvent(
+			this.app.workspace.on("editor-menu", (menu, editor, view) => {
+				console.log("EVENT", menu, editor, view);
+			})
+		);
+
 		log("Loaded");
 
 		// This adds a settings tab so the user can configure various aspects of the plugin

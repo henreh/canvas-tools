@@ -1,4 +1,4 @@
-import { normalizePath, TAbstractFile, TFile, TFolder, Vault } from "obsidian";
+import { normalizePath, Notice, TAbstractFile, TFile, TFolder, Vault } from "obsidian";
 
 export function log(message: string, obj?: any): void {
     if (obj) {
@@ -6,6 +6,7 @@ export function log(message: string, obj?: any): void {
     } else {
         console.log(`[Canvas-Toolbox] ${message}`);
     }
+    new Notice(`[Canvas-Toolbox] ${message}`);
 }
 
 export function delay(ms: number): Promise<void> {

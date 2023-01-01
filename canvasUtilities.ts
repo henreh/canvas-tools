@@ -23,7 +23,6 @@ export default class CanvasUtilities {
         //This is to get the prototype...TODO redo when API is fixed
 		const edge = canvas.edges.get(canvas.getData().edges.first()?.id);
         if (!edge) { new Notice("Add an edge first to use this command..."); return;  }
-
         
         const tempEdge = new edge.constructor(canvas, this.createEntityId(), {side: "right", node: fromNode}, {side: "left", node: toNode});
         canvas.addEdge(tempEdge);

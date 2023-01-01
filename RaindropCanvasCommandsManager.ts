@@ -8,12 +8,12 @@ export default class RaindropCanvasCommandsManager {
     plugin: CTB;
 
     constructor(plugin: CTB) {
-        this.loadCollections(plugin);
+        this.plugin = plugin; 
+        this.loadCollections();
     }
 
-    async loadCollections(plugin: CTB) {
-        this.collections = await getCollections(plugin.settings.raindropAccessToken);
-        log("Collections", this.collections);
+    async loadCollections() {
+        this.collections = await getCollections(this.plugin.settings.raindropAccessToken);
     }
 
     public addCommands() {	
@@ -24,19 +24,19 @@ export default class RaindropCanvasCommandsManager {
             checkCallback: (checking: boolean) => {
                 if (!checking)
                 {
-                    const canvasView = plugin.app.workspace.getActiveViewOfType(ItemView);
-                    if (plugin.canvasUtilities.viewIsCanvas(canvasView))
+                    const canvasView = this.plugin.app.workspace.getActiveViewOfType(ItemView);
+                    if (this.plugin.canvasUtilities.viewIsCanvas(canvasView))
                     {
                         // @ts-ignore
                         const canvas = canvasView.canvas;
                         log("canvas view", canvasView);
-                        const collectionsModal = new CollectionsModal(plugin, this.collections, (collectionName: string) => {
+                        const collectionsModal = new CollectionsModal(this.plugin, this.collections, (collectionName: string) => {
                             log("Selected collection: " + collectionName);
 
                             const collectionId = getCollectionIdFromName(collectionName, this.collections);
                             log("Collection ID: " + collectionId);
 
-                            getRaindropsInCollection(collectionId, plugin.settings.raindropAccessToken).then((raindrops) => {
+                            getRaindropsInCollection(collectionId, this.plugin.settings.raindropAccessToken).then((raindrops) => {
                                 log("Raindrops in collection: " + raindrops.length);
 
                                 const numX = 5;
@@ -54,7 +54,7 @@ export default class RaindropCanvasCommandsManager {
                                     const currPadding = i == 0 ? 0 : padding;
                                     const yPadding = currY == 0 ? 0 : padding;
 
-                                    plugin.canvasUtilities.createURLNode(canvas, currX*width + currPadding, currY*height + yPadding, width, height, raindrop.link);
+                                    this.plugin.canvasUtilities.createURLNode(canvas, currX*width + currPadding, currY*height + yPadding, width, height, raindrop.link);
 
                                     currX++;
                                     i++;
